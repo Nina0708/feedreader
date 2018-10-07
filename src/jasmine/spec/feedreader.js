@@ -8,13 +8,21 @@ $(
 
 			it('contain valid feeds(with url)', function() {
 				allFeeds.forEach((feed) => {
+					// Neither undefined, null or empty string 
+					// is helpful for loading rss feed
 					expect(feed.url).toBeDefined();
+					expect(feed.url).not.toBe(null);
+					expect(feed.url).not.toBe('');
 				});
 			});
 
 			it('contain valid feeds(with name)', function() {
 				allFeeds.forEach((feed) => {
+					// Neither undefined, null or empty string 
+					// is helpful for loading rss feed
 					expect(feed.name).toBeDefined();
+					expect(feed.url).not.toBe(null);
+					expect(feed.url).not.toBe('');
 				});
 			});
 		});
