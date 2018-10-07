@@ -10,18 +10,8 @@
  */
 $(
 	(function() {
-		/* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
 		describe('RSS Feeds', function() {
-			/* This is our first test - it tests to make sure that the
-         * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
-         */
+
 			it('are defined', function() {
 				expect(allFeeds).toBeDefined();
 				expect(allFeeds.length).not.toBe(0);
@@ -41,24 +31,28 @@ $(
 		});
 
 		describe('The menu', function() {
-            /* TODO: Write a test that ensures the menu element is
-             * hidden by default. You'll have to analyze the HTML and
-             * the CSS to determine how we're performing the
-             * hiding/showing of the menu element.
-             */
-    
+            let menuIconLink = $('.menu-icon-link')
+            let classes;
+
 			it('menu element is hidden by default', function() {
-                let classes = $('body').attr('class');
+                classes = $('body').attr('class');
                 expect(classes).toContain('menu-hidden');
             });
             
-            /* TODO: Write a test that ensures the menu changes
-              * visibility when the menu icon is clicked. This test
-              * should have two expectations: does the menu display when
-              * clicked and does it hide when clicked again.
-              */
+			it('menu visibility changes after clicking menu icon', function() {
+                menuIconLink.trigger('click');
+                classes = $('body').attr('class');
+                expect(classes).not.toContain('menu-hidden');
+
+                menuIconLink.trigger('click');
+                classes = $('body').attr('class');
+                expect(classes).toContain('menu-hidden');
+            });
         });
 
+		describe('Initial Entries', function() {
+            
+        });
 
 		/* TODO: Write a new test suite named "Initial Entries" */
 
