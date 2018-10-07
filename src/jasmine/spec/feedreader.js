@@ -29,26 +29,20 @@ $(
 
 		describe('The menu', function() {
 			let menuIconLink = $('.menu-icon-link');
-			let classes;
+			let isMenuHidden = () => {
+				return $('body').hasClass('menu-hidden')
+			};
 
 			it('should hide menu by default', function() {
-                // the hiding of menu items is achieved by
-                // applying menu-hidden class on document body
-                classes = $('body').attr('class');
-                // We use toContain not toEqual because
-                // we can't be sure extra classes will be 
-                // added to body in the future
-				expect(classes).toContain('menu-hidden');
+				expect(isMenuHidden()).toBe(true)
 			});
 
 			it('should change menu visibility after clicking menu icon', function() {
 				menuIconLink.trigger('click'); // This emulate a click event
-				classes = $('body').attr('class');
-				expect(classes).not.toContain('menu-hidden');
+				expect(isMenuHidden()).toBe(false)
 
 				menuIconLink.trigger('click');
-				classes = $('body').attr('class');
-				expect(classes).toContain('menu-hidden');
+				expect(isMenuHidden()).toBe(true)
 			});
 		});
 
