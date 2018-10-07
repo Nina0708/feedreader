@@ -32,7 +32,7 @@ To do so, issue the following command in a terminal under the project root direc
 ```bash
 npx grunt build
 # or
-npm build
+npm run build
 ```
 Aftrer this, a `dist` folder will be created(if not exist) under root directory. Three files `index.html`, `app.js` and `app.css` will be placed under this folder.
 
@@ -43,6 +43,6 @@ To preview the production code we just built, issue the following command under 
 ```bash
 npx grunt preview
 # or
-npm preview
+npm run preview
 ```
 After this, the preview server will be listening at `localhost:9000`, open a browser and enter `locahost:9000` in the address bar, this server will be exactly the same as test server, only without jasmine results.
