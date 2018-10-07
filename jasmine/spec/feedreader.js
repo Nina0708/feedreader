@@ -47,7 +47,10 @@ $(
              * hiding/showing of the menu element.
              */
     
-
+			it('menu element is hidden by default', function() {
+                let classes = $('body').attr('class');
+                expect(classes).toContain('menu-hidden');
+            });
             
             /* TODO: Write a test that ensures the menu changes
               * visibility when the menu icon is clicked. This test
